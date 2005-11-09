@@ -1,8 +1,8 @@
 #Change PROJECT_NAME to the name of your project
-PROJECT()
+PROJECT(invert)
 
 # set the name of the input image used to run the test
-SET(INPUT_IMAGE "")
+SET(INPUT_IMAGE "cthead1.png")
 
 #include some macros from another file...
 INCLUDE(IJMacros.txt)
