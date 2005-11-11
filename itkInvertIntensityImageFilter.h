@@ -52,7 +52,7 @@ private:
  * the maximum of input pixel type.
  * This filter can be used to invert, for example, a binary image, a distance map, etc.
  *
- * \author Gaëtan Lehmann. Biologie du Développement et de la Reproduction, INRA of Jouy-en-Josas, France.
+ * \author Gaëtan Lehmann. Biologie du Développement et de la Reproduction, INRA de Jouy-en-Josas, France.
  *
  * \sa IntensityWindowingImageFilter ShiftScaleImageFilter
  * \ingroup IntensityImageFilters  Multithreaded

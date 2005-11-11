@@ -41,6 +41,9 @@ SET(Libraries
 ADD_EXECUTABLE(test test.cxx) 
 TARGET_LINK_LIBRARIES(test ${Libraries})
 
+ADD_EXECUTABLE(perf perf.cxx) 
+TARGET_LINK_LIBRARIES(perf ${Libraries})
+
 #the following line is an example of how to add a test to your project.
 #Testname is the title for this particular test.  ExecutableToRun is the
 #program which will be running this test.  It can either be a part of this
