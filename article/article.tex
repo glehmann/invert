@@ -22,16 +22,14 @@
 InvertIntensityImageFilter is a convenient filter to invert the intensity of an image. An image can already be inverted with ITK, but it requires to use a more complex filter (ShiftScaleImageFilter or IntensityWindowingImageFilter).
 
 \section{Implementation}
-InvertIntensityImageFilter is base on UnaryFunctorImageFilter. and simply subtract the maximum value to all pixels before casting the result to the output pixel type.
+InvertIntensityImageFilter is based on UnaryFunctorImageFilter and simply subtract the maximum value to all pixels before casting the result to the output pixel type.
 \begin{lstlisting}
-TOutput  result = static_cast<TOutput>( m_Maximum - x );
+TOutput result = static_cast<TOutput>( m_Maximum - x );
 \end{lstlisting}
-The maximum value is not computed by the filter to avoid iterating over the input image twice. It may be given by the user, but the default value should be good in most cases.
+The maximum value is not computed by the filter to avoid iterating twice over the input image. It may be given by the user, but the default value (NumericTraits$<$ InputPixelType $>$::max()) must be correct in most of cases.
  
-\section{Performance}
-The performances of the different solutions have been measured, even if they are not a problem with the current filters able to invert an image. 
-
-Measures have been done on a linux box with an Athlon64 2800+ and repeated 100 fold. The inverted image is an 8 bits 3D image of size 371x371x34\footnote{Image of ES cells from mima2 (http://mima2.jouy.inra.fr/)}. Results are shown in Table~\ref{perf}.
+\section{Performances}
+The performances of the different solutions have been measured on a linux box with an Athlon64 2800+ and repeated 100 fold. The inverted image is an 8 bits 3D image of size 371x371x34\footnote{Image of ES cells from mima2 (http://mima2.jouy.inra.fr/)}. Results are reported in Table~\ref{perf}.
 
 \begin{table}
 \centering
@@ -40,9 +38,9 @@ Measures have been done on a linux box with an Athlon64 2800+ and repeated 100 f
 filter & Execution time \\
 \hline
 \hline
-InvertIntensityImageFilter & 0.0367s \\
-ShiftScaleImageFilter & 0.0842s \\
-IntensityWindowingImageFilter & 0.0876s \\
+InvertIntensityImageFilter & 0.0367 s \\
+ShiftScaleImageFilter & 0.0842 s \\
+IntensityWindowingImageFilter & 0.0876 s \\
 \hline
 \end{tabular}
 \caption{Execution time.\label{perf}}
