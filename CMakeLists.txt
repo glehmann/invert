@@ -39,8 +39,10 @@ SET(Libraries
 #MyExe will be built using the files MyClass.h and MyClass.cxx, and it will
 #be linked to all the libraries you specified above. 
 #You can build more than one executable per project
-ADD_EXECUTABLE(check check.cxx) 
-TARGET_LINK_LIBRARIES(check ${Libraries})
+
+SET(CurrentExe "check")
+ADD_EXECUTABLE(${CurrentExe} ${CurrentExe}.cxx)
+TARGET_LINK_LIBRARIES(${CurrentExe} ${Libraries})
 
 ADD_EXECUTABLE(perf perf.cxx) 
 TARGET_LINK_LIBRARIES(perf ${Libraries})
