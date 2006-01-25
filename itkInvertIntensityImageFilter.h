@@ -37,6 +37,8 @@ public:
     TOutput  result = static_cast<TOutput>( m_Maximum - x );
     return result;
   }
+  bool operator != (const InvertIntensityTransform& l) const
+  { return l.m_Maximum == m_Maximum; }
 private:
   TInput  m_Maximum;
 }; 
